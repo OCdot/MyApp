@@ -51,18 +51,18 @@ const Otp = () => {
 
   const handleVerify = async () => {
     const enteredOTP = otp.join('');
-    console.warn(enteredOTP);
-    console.warn('CONFIRM', confirmation);
+    // console.warn(enteredOTP);
+    // console.warn('CONFIRM', confirmation);
     try {
       // await confirmation.confirm(enteredOTP);
       if (confirmation === enteredOTP) {
         await firestore().collection('Users').add(userData).then(resp =>{
-          Snackbar.show({
-            text : 'Success..',
-            duration : Snackbar.LENGTH_SHORT,
-            backgroundColor : colors.primaryGreen,
-            textColor : colors.white
-          })
+          // Snackbar.show({
+          //   text : 'Success..',
+          //   duration : Snackbar.LENGTH_SHORT,
+          //   backgroundColor : colors.primaryGreen,
+          //   textColor : colors.white
+          // })
         })
         navigation.navigate('Address');
       }

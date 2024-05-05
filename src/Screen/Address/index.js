@@ -6,6 +6,7 @@ import style from './style';
 import CheckBox from '@react-native-community/checkbox';
 import CustomButton from '../../Common/CustomButton';
 import { useNavigation } from '@react-navigation/native';
+import Snackbar from 'react-native-snackbar';
 
 const Address = () => {
   const [isChecked, setChecked] = useState(false);
@@ -14,6 +15,17 @@ const Address = () => {
   const handleCheckBox = () => {
     setChecked(!isChecked);
   };
+
+  const handleContinue = () =>{
+    navigation.navigate('Login')
+    Snackbar.show({
+      text: 'Login To Continue',
+      duration: Snackbar.LENGTH_SHORT,
+      backgroundColor: colors.primaryGreen,
+      fontFamily: 'Poppins-Regular',
+      textColor: colors.white,
+    });
+  }
 
   return (
     <View style={style.container}>
@@ -67,7 +79,7 @@ const Address = () => {
         </View>
 
         <View style={{marginTop: 90}}>
-          <CustomButton text="Continue" handleButtonPress ={()=>navigation.navigate('AppFooter')}/>
+          <CustomButton text="Continue" handleButtonPress ={handleContinue}/>
         </View>
 
         <TouchableOpacity style={{marginTop: 60, alignSelf: 'center'}}>
